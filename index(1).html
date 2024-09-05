@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quitanda</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head> 
+ 
+<body>
+    <header>
+        <center><img
+            src="https://www.dropbox.com/scl/fi/rf34ylywm0k1gkg0m5om1/quitanda_logo.png?rlkey=uj6if86s0fcpzx3rdvy46alwc&st=es4w5kh7&raw=1"></center>
+    </header>
+    <div class="container">
+        <label for="calculatorType">Calculadora:</label>
+        <select id="calculatorType" onchange="changeCalculator()">
+            <option value="unit">Por unidade</option>
+            <option value="kilo">Por quilo</option>
+        </select>
+
+        <div id="unitCalculator">
+            <label for="fruit">Escolha a fruta:</label>
+            <select id="fruit">
+                <option value="banana">Banana - R$
+                    <script>document.write(bananaPriceUnit.toFixed(2));</script>
+                </option>
+                <option value="laranja">Laranja - R$
+                    <script>document.write(laranjaPriceUnit.toFixed(2));</script>
+                </option>
+                <option value="maca">Maçã - R$
+                    <script>document.write(macaPriceUnit.toFixed(2));</script>
+                </option>
+                <option value="pera">Pêra - R$
+                    <script>document.write(peraPriceUnit.toFixed(2));</script>
+                </option>
+            </select>
+
+            <label for="quantity">Quantidade:</label>
+            <input type="number" id="quantity" value="1" min="1">
+
+            <button class="butao" onclick="addToCart()">Adicionar ao carrinho</button>
+
+            <center>
+                <h3>Carrinho</h3>
+            </center>
+            <ul id="cart"></ul>
+
+            <p class="total">Total: R$ <span id="total">0.00</span></p>
+        </div>
+
+        <div id="kiloCalculator" style="display: none;">
+            <label for="fruitKilo">Escolha a fruta:</label>
+            <select id="fruitKilo">
+                <option value="banana">Banana - R$
+                    <script>document.write(bananaPriceKilo.toFixed(2));</script>/kg
+                </option>
+                <option value="laranja">Laranja - R$
+                    <script>document.write(laranjaPriceKilo.toFixed(2));</script>/kg
+                </option>
+                <option value="maca">Maçã - R$
+                    <script>document.write(macaPriceKilo.toFixed(2));</script>/kg
+                </option>
+                <option value="pera">Pêra - R$
+                    <script>document.write(peraPriceKilo.toFixed(2));</script>/kg
+                </option>
+            </select>
+
+            <label for="quantityKilo">Peso (gramas):</label>
+            <input type="number" id="quantityKilo" value="100" min="1">
+
+            <button class="butao" onclick="addToCartKilo()">Adicionar ao carrinho</button>
+
+            <center>
+                <h3>Carrinho</h3>
+            </center>
+            <ul id="cartKilo"></ul>
+
+            <p class="total">Total: R$ <span id="totalKilo">0.00</span></p>
+        </div>
+
+        <button class="butao" onclick="clearCart()">Limpar Carrinho</button>
+    </div>
+
+</body>
+
+</html>
